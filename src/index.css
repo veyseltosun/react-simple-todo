@@ -5,9 +5,29 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: blanchedalmond;
+  text-align: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.yapildi {
+  text-decoration: line-through;
+}
+h1{
+  color: brown;
+
+}
+input{
+  height: 20px;
+  width: 30%;
+  border-radius: 3px;
+}
+
+button{
+  height: 25px;
+  border-radius:3px;
+}
+

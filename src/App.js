@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const INITIAL_STATE = [
   {id:1, baslik:"Alisveris Yap", tamamlandi: false},
-  {id:2, baslik:"Fatura ode", tamamlandi: false},
+  {id:2, baslik:"Fatura ode", tamamlandi: true},
 
 ]
 
@@ -19,9 +19,17 @@ function App() {
       </div>
       <div className="liste">
 
-        {liste.map(({id, baslik, tamamlandi}) => {
+        {liste.map((item) => {
+          
           return(
-            <div className={tamamlandi ? "yapildi" : "" } key={id}> {baslik} </div>
+            <div onClick={()=> {
+              setListe(liste.map( (eleman) => {
+                return (
+                  eleman.id === item.id ? {...eleman, tamamlandi: !eleman.tamamlandi} : eleman
+                )
+
+              }))
+            }} className={item.tamamlandi ? "yapildi" : "" } key={item.id}> {item.baslik} </div>
           )
         })}
         {/* <div>Yapılacak</div>
