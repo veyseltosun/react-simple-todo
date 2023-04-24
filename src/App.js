@@ -16,6 +16,18 @@ function App() {
 
   }
 
+  const markCompleted = (id) => {
+    setListe(liste.map( (eleman) => {
+      return (
+        eleman.id === id ? {...eleman, tamamlandi: !eleman.tamamlandi} : eleman
+      )}));
+
+  };
+
+  const clearCompleted = () => {
+    setListe(liste.filter(item => !item.tamamlandi))
+  }
+ 
 
   return (
     <div className="App">
@@ -33,20 +45,13 @@ function App() {
         {liste.map((item) => {
           
           return(
-            <div onClick={()=> {
-              setListe(liste.map( (eleman) => {
-                return (
-                  eleman.id === item.id ? {...eleman, tamamlandi: !eleman.tamamlandi} : eleman
-                )
-
-              }))
-            }} className={item.tamamlandi ? "yapildi" : "" } key={item.id}> {item.baslik} </div>
+            <div onClick={()=> markCompleted(item.id) } className={item.tamamlandi ? "yapildi" : "" } key={item.id}> {item.baslik} </div>
           )
         })}
        
 
       </div>
-      <button onClick={() => setListe(liste.filter(item => !item.tamamlandi)) }className="temizle">Tamamlananları Temizle</button>
+      <button onClick={() => clearCompleted() }className="temizle">Tamamlananları Temizle</button>
      
     </div>
   );
